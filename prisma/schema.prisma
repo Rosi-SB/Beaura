@@ -12,3 +12,54 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+model Turma{
+  tur_id Int @default(autoincrement()) @id
+  tur_nome String
+  tecnicos Tecnicos[] @relation("TurmaTecnicos")
+}
+
+model Especialidade {
+  esp_id    Int     @default(autoincrement()) @id
+  esp_nome String  @unique
+  esp_descricao String
+  tecnicos Tecnicos[] @relation("EspecialidadeTecnicos")
+}
+model Tecnicos {
+  tec_id    Int     @default(autoincrement()) @id
+  tec_email String  @unique
+  tec_senha String
+  tec_nome  String
+  consulta Consulta[] @relation("TecnicosConsulta")
+  tur_id Int
+  tur Turma @relation("TurmaTecnicos", fields: [tur_id], references: [tur_id])
+  esp_id Int
+  esp Especialidade @relation("EspecialidadeTecnicos", fields: [esp_id], references: [esp_id])
+}
+model Procedimento{
+  pro_id Int @default(autoincrement()) @id
+  pro_nome String
+  tecnicos Tecnicos[] @relation("TurmaTecnicos")
+}
+model Solicitacao {
+  sol_id    Int     @default(autoincrement()) @id
+  sol_status String 
+  sol_data DateTime
+  sol_descricao  String
+  consulta Consulta[] @relation("SolicitacaoConsulta")
+  cad_id Int
+  cad Cadastro @relation("CadastroSolicitacao", fields: [cad_id], references: [cad_id])
+  pro_id Int
+  esp Procedimento @relation("ProcedimentoSolicitacao", fields: [pro_id], references: [pro_id])
+}
+model Consulta {
+  con_id    Int     @default(autoincrement()) @id
+  con_data DateTime
+  con_descricao String
+  hora_inicio String
+  hora_termino String
+  tec_id Int
+  tec Tecnicos @relation("TecnicosConsulta", fields: [tec_id], references: [tec_id])
+  sol_id Int
+  sol Solicitacao @relation("SolicitacaoConsulta", fields:[sol_id], references: [sol_id])
+}
+
