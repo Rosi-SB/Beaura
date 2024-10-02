@@ -99,6 +99,7 @@ model Solicitacao {
   proSol Procedimento @relation(fields: [proId], references: [pro_id])
   preSol PreFormulario[]
   facSol FormularioFacial[]
+  conSol Consulta[]
 }
 
 model PreFormulario {
