@@ -29,6 +29,7 @@ model Tecnicos {
   tec_email String  @unique
   tec_senha String
   tec_nome  String
+  tec_sobrenome String
   consulta Consulta[] @relation("TecnicosConsulta")
   tur_id Int
   tur Turma @relation("TurmaTecnicos", fields: [tur_id], references: [tur_id])
