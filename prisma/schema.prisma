@@ -15,14 +15,14 @@ datasource db {
 model Turma{
   tur_id Int @default(autoincrement()) @id
   tur_nome String
-  tecnicos Tecnicos[] @relation("TurmaTecnicos")
+  tecnicos Tecnicos[]
 }
 
 model Especialidade {
   esp_id    Int     @default(autoincrement()) @id
   esp_nome String  @unique
   esp_descricao String
-  tecnicos Tecnicos[] @relation("EspecialidadeTecnicos")
+  tecnicos Tecnicos[]
 }
 model Tecnicos {
   tec_id    Int     @default(autoincrement()) @id
@@ -30,7 +30,7 @@ model Tecnicos {
   tec_senha String
   tec_nome  String
   tec_sobrenome String
-  consulta Consulta[] @relation("TecnicosConsulta")
+  consulta Consulta[]
   tur_id Int
   tur Turma @relation("TurmaTecnicos", fields: [tur_id], references: [tur_id])
   esp_id Int
