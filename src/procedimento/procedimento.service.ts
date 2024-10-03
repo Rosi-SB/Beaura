@@ -11,19 +11,20 @@ export class ProcedimentoService {
     return this.prisma.procedimento.create({data :createProcedimentoDto});
   }
 
-  async findAll() :Promise<ProcedimentoEntity>{
+  async findAll() :Promise<ProcedimentoEntity[]>{
     return this.prisma.procedimento.findMany();
   }
 
-  async findOne(id: number) :Promise<ProcedimentoEntity>{
-    return this.prisma.procedimento.findUnique({where:{id}});
+  async findOne(pro_id: number) :Promise<ProcedimentoEntity>{
+    return this.prisma.procedimento.findUnique({where:{pro_id}});
   }
 
-  async update(id: number, updateProcedimentoDto: UpdateProcedimentoDto) :Promise<ProcedimentoEntity>{
-    return this.prisma.procedimento.update({where:{id}, data :updateProcedimentoDto})
+  async update(pro_id: number, updateProcedimentoDto: UpdateProcedimentoDto) :Promise<ProcedimentoEntity>{
+    return this.prisma.procedimento.update({where:{pro_id}, data :updateProcedimentoDto})
   }
 
-  async remove(id: number) :Promise<ProcedimentoEntity>{
-    return this.prisma.procedimento.delete({where:{id}});
+  async remove(pro_id: number) :Promise<ProcedimentoEntity>{
+    return this.prisma.procedimento.delete({where:{pro_id}});
   }
 }
+
