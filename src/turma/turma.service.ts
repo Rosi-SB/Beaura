@@ -11,19 +11,20 @@ export class TurmaService {
     return this.prisma.turma.create({data :createTurmaDto});
   }
 
-  async findAll() :Promise<TurmaEntity>{
+  async findAll() :Promise<TurmaEntity[]>{
     return this.prisma.turma.findMany();
   }
 
-  async findOne(id: number) :Promise<TurmaEntity>{
-    return this.prisma.turma.findUnique({where:{id}});
+  async findOne(tur_id: number) :Promise<TurmaEntity>{
+    return this.prisma.turma.findUnique({where:{tur_id}});
   }
 
-  async update(id: number, updateTurmaDto: UpdateTurmaDto) :Promise<TurmaEntity>{
-    return this.prisma.turma.update({where:{id}, data :updateTurmaDto});
+  async update(tur_id: number, updateTurmaDto: UpdateTurmaDto) :Promise<TurmaEntity>{
+    return this.prisma.turma.update({where:{tur_id}, data :updateTurmaDto});
   }
 
-  async remove(id: number) :Promise<TurmaEntity>{
-    return this.prisma.turma.delete({where:{id}});
+  async remove(tur_id: number) :Promise<TurmaEntity>{
+    return this.prisma.turma.delete({where:{tur_id}});
   }
 }
+
