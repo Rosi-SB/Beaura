@@ -99,6 +99,7 @@ model Solicitacao {
   proSol Procedimento @relation(fields: [proId], references: [pro_id])
   preSol PreFormulario[]
   facSol FormularioFacial[]
+  corSOl FormularioCorporal[]
   conSol Consulta[]
 }
 
@@ -107,7 +108,6 @@ model PreFormulario {
   pre_altura Decimal
   pre_peso Decimal
   pre_imc Decimal
-  
   // Pergunta: Fez Tratamentos Estéticos Anteriores?
   pre_p1 String
   // Pergunta: Caso sim, quais?
@@ -117,7 +117,7 @@ model PreFormulario {
   // Pergunta: Especialidade:
   pre_p4 String?
   // Pergunta: Data:
-  pre_p5 String?
+  pre_p5 DateTime?
   // Pergunta: Antecedentes Alérgicos?
   pre_p6 String
   // Pergunta: Caso sim, quais?
@@ -265,7 +265,88 @@ model FormularioFacial {
   fac_p18 String
   // Pergunta: Outras alterações
   fac_p19 String
-  comentariosObs String
+  fac_ComObs String
   solId Int
   solFac Solicitacao @relation(fields: [solId], references: [sol_id])
+}
+
+model FormularioCorporal {
+  cor_id Int @id @default(autoincrement())
+  cor_img String
+  // Pergunta: Classificação de Fitzpatrick
+  cor_p1 String
+  // Pergunta: Textura da Pele:
+  cor_p2 String
+  // Pergunta: Lesões Vasculares:
+  cor_p3 String
+  // Pergunta: Lesões Pigmentares:
+  cor_p4 String
+  // Pergunta: Lesões Sólidas:
+  cor_p5 String
+  // Pergunta: Outras? Quais?
+  cor_p6 String?
+  // Pergunta: Conteúdos Líquidos
+  cor_p7 String
+  // Pergunta: Outros? Quais?
+  cor_p8 String?
+  // Pergunta: Hidratação?
+  cor_p9 String
+  // Pergunta: Espessura/Consistência:
+  cor_p10 String
+  // Pergunta: Biotipo Corporal
+  cor_p11 String
+  // Pergunta: Dor a Palpação
+  cor_p12 String
+  // Pergunta: Grau de Intensidade
+  cor_p13 String
+  // Pergunta: Classificação
+  cor_p14 String
+  // Pergunta: Localização
+  cor_p15 String
+  // Pergunta: Adiposidade
+  cor_p16 String
+  // Pergunta: Localização:
+  cor_p17 String
+  // Pergunta: Estrias / Nacaradas
+  cor_p18 String
+  // Pergunta: Localização:
+  cor_p19 String
+  // Pergunta: Rubras:
+  cor_p20 String
+  // Pergunta: Localização:
+  cor_p21 String
+  // Pergunta: Hidratação:
+  cor_p22 String
+  // Pergunta: Localização:
+  cor_p23 String
+  // Pergunta: Flacidez Generalizada:
+  cor_p24 String
+  // Pergunta: Localização:
+  cor_p25 String
+  cor_ComObs String
+  solId Int
+  solCor Solicitacao @relation(fields: [solId], references: [sol_id])
+  bioCor Biometria[]
+}
+
+model Biometria {
+  bio_id Int @id @default(autoincrement())
+  bio_data DateTime
+  bio_bracoD Decimal?
+  bio_bracoE Decimal?
+  bio_busto Decimal?
+  bio_torax Decimal?
+  bio_cintura Decimal?
+  bio_abdomen Decimal?
+  bio_flancos Decimal?
+  bio_quadril Decimal?
+  bio_culote Decimal?
+  bio_coxaD Decimal?
+  bio_coxaE Decimal?
+  bio_entreD Decimal?
+  bio_entreE Decimal?
+  bio_panturrilhaD Decimal?
+  bio_panturrilhaE Decimal?
+  corId Int
+  corBio FormularioCorporal @relation(fields: [corId], references: [cor_id])
 }
