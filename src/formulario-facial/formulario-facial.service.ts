@@ -8,7 +8,7 @@ import { FormularioFacialEntity } from './entities/formulario-facial.entity';
 export class FormularioFacialService {
   constructor(private readonly prisma :PrismaService){}
   async create(createFormularioFacialDto: CreateFormularioFacialDto) :Promise<FormularioFacialEntity>{
-    return this.prisma.formulariofacial.create({data :CreateFormularioFacialDto});
+    return this.prisma.formulariofacial.create({data :createFormularioFacialDto});
   }
 
   async findAll() :Promise<FormularioFacialEntity>{
