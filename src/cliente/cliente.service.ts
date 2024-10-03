@@ -15,15 +15,15 @@ export class ClienteService {
     return this.prisma.cliente.findMany();
   }
 
-  async findOne(id: number) : Promise<ClienteEntity> {
-    return this.prisma.cliente.findUnique({where:{id}});
+  async findOne(cli_id: number) : Promise<ClienteEntity> {
+    return this.prisma.cliente.findUnique({where:{cli_id}});
   }
 
-  update(id: number, updateClienteDto: UpdateClienteDto) : Promise<ClienteEntity> {
-    return this.prisma.cliente.update({where:{id}, data: updateClienteDto});
+  update(cli_id: number, updateClienteDto: UpdateClienteDto) : Promise<ClienteEntity> {
+    return this.prisma.cliente.update({where:{cli_id}, data: updateClienteDto});
   }
 
-  remove(id: number) : Promise<ClienteEntity> {
-    return this.prisma.cliente.delete({where:{id}});
+  remove(cli_id: number) : Promise<ClienteEntity> {
+    return this.prisma.cliente.delete({where:{cli_id}});
   }
 }
