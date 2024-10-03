@@ -11,19 +11,19 @@ export class ConsultaService {
     return this.prisma.consulta.create({data :createConsultaDto});
   }
 
-  async findAll() :Promise<ConsultaEntity>{
+  async findAll() :Promise<ConsultaEntity[]>{
     return this.prisma.consulta.findMany();
   }
 
-  async findOne(id: number) :Promise<ConsultaEntity>{
-    return this.prisma.consulta.findUnique({where:{id}});
+  async findOne(con_id: number) :Promise<ConsultaEntity>{
+    return this.prisma.consulta.findUnique({where:{con_id}});
   }
 
-  async update(id: number, updateConsultaDto: UpdateConsultaDto) :Promise<ConsultaEntity>{
-    return this.prisma.consulta.update({where:{id}, data :updateConsultaDto});
+  async update(con_id: number, updateConsultaDto: UpdateConsultaDto) :Promise<ConsultaEntity>{
+    return this.prisma.consulta.update({where:{con_id}, data :updateConsultaDto});
   }
 
-  async remove(id: number) :Promise<ConsultaEntity>{
-    return this.prisma.consulta.delete({where:{id}});
+  async remove(con_id: number) :Promise<ConsultaEntity>{
+    return this.prisma.consulta.delete({where:{con_id}});
   }
 }
