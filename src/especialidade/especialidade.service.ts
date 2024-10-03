@@ -11,19 +11,20 @@ export class EspecialidadeService {
     return this.prisma.especialidade.create({data :createEspecialidadeDto});
   }
 
-  async findAll() :Promise<EspecialidadeEntity>{
+  async findAll() :Promise<EspecialidadeEntity[]>{
     return this.prisma.especialidade.findMany();
   }
 
-  async findOne(id: number) :Promise<EspecialidadeEntity>{
-    return this.prisma.especialidade.findUnique({where:{id}});
+  async findOne(esp_id: number) :Promise<EspecialidadeEntity>{
+    return this.prisma.especialidade.findUnique({where:{esp_id}});
   }
   
-  async update(id: number, updateEspecialidadeDto: UpdateEspecialidadeDto) :Promise<EspecialidadeEntity>{
-    return this.prisma.especialidade.update({where:{id}, data :updateEspecialidadeDto});
+  async update(esp_id: number, updateEspecialidadeDto: UpdateEspecialidadeDto) :Promise<EspecialidadeEntity>{
+    return this.prisma.especialidade.update({where:{esp_id}, data :updateEspecialidadeDto});
   }
 
-  async remove(id: number) :Promise<EspecialidadeEntity>{
-    return this.prisma.especialidade.delete({where:{id}});
+  async remove(esp_id: number) :Promise<EspecialidadeEntity>{
+    return this.prisma.especialidade.delete({where:{esp_id}});
   }
 }
+
