@@ -8,7 +8,7 @@ import { ProcedimentoEntity } from './entities/procedimento.entity';
 export class ProcedimentoService {
   constructor(private readonly prisma :PrismaService){}
   async create(createProcedimentoDto: CreateProcedimentoDto) :Promise<ProcedimentoEntity>{
-    return this.prisma.procedimento.create({data :CreateProcedimentoDto});
+    return this.prisma.procedimento.create({data :createProcedimentoDto});
   }
 
   async findAll() :Promise<ProcedimentoEntity>{
