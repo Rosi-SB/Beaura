@@ -8,7 +8,7 @@ import { TurmaEntity } from './entities/turma.entity';
 export class TurmaService {
   constructor(private readonly prisma :PrismaService){}
   async create(createTurmaDto: CreateTurmaDto) :Promise<TurmaEntity>{
-    return this.prisma.turma.create({data :CreateTurmaDto});
+    return this.prisma.turma.create({data :createTurmaDto});
   }
 
   async findAll() :Promise<TurmaEntity>{
