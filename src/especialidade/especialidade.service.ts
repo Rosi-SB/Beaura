@@ -8,7 +8,7 @@ import { EspecialidadeEntity} from './entities/especialidade.entity';
 export class EspecialidadeService {
   constructor(private readonly prisma :PrismaService){}
   async create(createEspecialidadeDto: CreateEspecialidadeDto) :Promise<EspecialidadeEntity> {
-    return this.prisma.especialidade.create({data :CreateEspecialidadeDto});
+    return this.prisma.especialidade.create({data :createEspecialidadeDto});
   }
 
   async findAll() :Promise<EspecialidadeEntity>{
