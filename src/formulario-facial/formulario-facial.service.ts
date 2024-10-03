@@ -8,22 +8,23 @@ import { FormularioFacialEntity } from './entities/formulario-facial.entity';
 export class FormularioFacialService {
   constructor(private readonly prisma :PrismaService){}
   async create(createFormularioFacialDto: CreateFormularioFacialDto) :Promise<FormularioFacialEntity>{
-    return this.prisma.formulariofacial.create({data :createFormularioFacialDto});
+    return this.prisma.formularioFacial.create({data :createFormularioFacialDto});
   }
 
-  async findAll() :Promise<FormularioFacialEntity>{
-    return this.prisma.formulariofacial.findMany();
+  async findAll() :Promise<FormularioFacialEntity[]>{
+    return this.prisma.formularioFacial.findMany();
   }
 
-  async findOne(id: number) :Promise<FormularioFacialEntity>{
-    return this.prisma.formulariofacial.findUnique({where:{id}});
+  async findOne(fac_id: number) :Promise<FormularioFacialEntity>{
+    return this.prisma.formularioFacial.findUnique({where:{fac_id}});
   }
 
-  async update(id: number, updateFormularioFacialDto: UpdateFormularioFacialDto) :Promise<FormularioFacialEntity>{
-    return this.prisma.formulariofacial.update({where:{id}, data :updateFormularioFacialDto});
+  async update(fac_id: number, updateFormularioFacialDto: UpdateFormularioFacialDto) :Promise<FormularioFacialEntity>{
+    return this.prisma.formularioFacial.update({where:{fac_id}, data :updateFormularioFacialDto});
   }
 
-  async remove(id: number) :Promise<FormularioFacialEntity>{
-    return this.prisma.formulariofacial.delete({where:{id}});
+  async remove(fac_id: number) :Promise<FormularioFacialEntity>{
+    return this.prisma.formularioFacial.delete({where:{fac_id}});
   }
 }
+
