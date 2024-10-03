@@ -11,19 +11,19 @@ export class TecnicosService {
     return this.prisma.tecnicos.create({data :createTecnicoDto});
   }
 
-  async findAll() :Promise<TecnicoEntity>{
+  async findAll() :Promise<TecnicoEntity[]>{
     return this.prisma.tecnicos.findMany();
   }
 
-  async findOne(id: number) :Promise<TecnicoEntity>{
-    return this.prisma.tecnicos.findUnique({where:{id}});
+  async findOne(tec_id: number) :Promise<TecnicoEntity>{
+    return this.prisma.tecnicos.findUnique({where:{tec_id}});
   }
 
-  async update(id: number, updateTecnicoDto: UpdateTecnicoDto) :Promise<TecnicoEntity>{
-    return this.prisma.tecnicos.update({where:{id}, data :updateTecnicoDto});
+  async update(tec_id: number, updateTecnicoDto: UpdateTecnicoDto) :Promise<TecnicoEntity>{
+    return this.prisma.tecnicos.update({where:{tec_id}, data :updateTecnicoDto});
   }
 
-  async remove(id: number) :Promise<TecnicoEntity>{
-    return this.prisma.tecnicos.delete({where:{id}});
+  async remove(tec_id: number) :Promise<TecnicoEntity>{
+    return this.prisma.tecnicos.delete({where:{tec_id}});
   }
 }
