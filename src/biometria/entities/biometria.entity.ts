@@ -1,7 +1,9 @@
 import {Biometria} from "@prisma/client"
-import { Decimal } from "@prisma/client/runtime"
+import { Decimal } from "@prisma/client/runtime/library";
+
 
 export class BiometriaEntity implements Biometria {
+    bio_id: number;
     bio_data: Date;
     bio_bracoD: Decimal;
     bio_bracoE: Decimal;
@@ -20,3 +22,4 @@ export class BiometriaEntity implements Biometria {
     bio_panturrilhaE: Decimal;
     corId: number
 }
+
