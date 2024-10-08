@@ -19,11 +19,11 @@ export class ClienteService {
     return this.prisma.cliente.findUnique({where:{cli_id}});
   }
 
-  update(cli_id: number, updateClienteDto: UpdateClienteDto) : Promise<ClienteEntity> {
+  async update(cli_id: number, updateClienteDto: UpdateClienteDto) : Promise<ClienteEntity> {
     return this.prisma.cliente.update({where:{cli_id}, data: updateClienteDto});
   }
 
-  remove(cli_id: number) : Promise<ClienteEntity> {
+  async remove(cli_id: number) : Promise<ClienteEntity> {
     return this.prisma.cliente.delete({where:{cli_id}});
   }
 }
