@@ -8,6 +8,7 @@ export class CadastroEntity implements Cadastro {
     cad_cpf: string;
     cad_rua: string;
     cad_numero: string;
+    cad_complemento: string;
     cad_bairro: string;
     cad_cep: string;
     cad_cidade: string;
