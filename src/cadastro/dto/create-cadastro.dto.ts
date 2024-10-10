@@ -6,6 +6,7 @@ export class CreateCadastroDto {
     cad_rua: string
     cad_numero: string
     cad_bairro: string
+    cad_complemento: string
     cad_cep: string
     cad_cidade: string
     cad_uf: string
