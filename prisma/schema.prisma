@@ -62,6 +62,7 @@ model Cadastro {
   cad_cpf String @unique
   cad_rua String
   cad_numero String
+  cad_complemento String
   cad_bairro String
   cad_cep String
   cad_cidade String
