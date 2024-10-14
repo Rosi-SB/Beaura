@@ -130,8 +130,6 @@ model PreFormulario {
   // Pergunta: Hipertiroidismo?
   pre_p10 String
   // Pergunta: Hipotireoidismo?
-  pre_p11 String
-  // Pergunta: Hipotireoidismo?
   pre_p12 String
   // Pergunta: Intestino Regular?
   pre_p13 String
@@ -175,10 +173,8 @@ model PreFormulario {
   pre_p32 String
   // Pergunta: Está Gestante?
   pre_p33 String
-  // Pergunta: Alterações de Pressão / Hipotensão?
+  // Pergunta: Alterações de Pressão / Hipotensão ou Hipertensão?
   pre_p34 String
-  // Pergunta: Hipertensão?
-  pre_p35 String
   // Pergunta: Alterações Vasculares? / Varizes?
   pre_p36 String
   // Pergunta: Trombose?
@@ -244,7 +240,7 @@ model FormularioFacial {
   fac_p7 String
   // Pergunta: Outros? Quais?
   fac_p8 String?
-  // Pergunta: Líquidas
+  // Pergunta: Líquidos
   fac_p9 String
   // Pergunta: Outros? Quais?
   fac_p10 String?
