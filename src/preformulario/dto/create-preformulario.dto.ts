@@ -25,8 +25,6 @@ export class CreatePreformularioDto {
     // Pergunta: Hipertiroidismo?
     pre_p10: string
     // Pergunta: Hipotireoidismo?
-    pre_p11: string
-    // Pergunta: Hipotireoidismo?
     pre_p12: string
     // Pergunta: Intestino Regular?
     pre_p13: string
@@ -72,8 +70,6 @@ export class CreatePreformularioDto {
     pre_p33: string
     // Pergunta: Alterações de Pressão / Hipotensão?
     pre_p34: string
-    // Pergunta: Hipertensão?
-    pre_p35: string
     // Pergunta: Alterações Vasculares? / Varizes?
     pre_p36: string
     // Pergunta: Trombose?
