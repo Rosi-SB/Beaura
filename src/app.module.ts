@@ -14,13 +14,14 @@ import { TurmaModule } from './turma/turma.module';
 import { SolicitacaoModule } from './solicitacao/solicitacao.module';
 import { PreformularioModule } from './preformulario/preformulario.module';
 import { CadastroModule } from './cadastro/cadastro.module';
+import { AuthModule } from './auth/auth.module';
 
 
 
 
 
 @Module({
-  imports: [BiometriaModule, FormularioCorporalModule, ProcedimentoModule, ClienteModule, ConsultaModule, FormularioFacialModule, TecnicosModule, EspecialidadeModule, TurmaModule, SolicitacaoModule, PreformularioModule, CadastroModule],
+  imports: [BiometriaModule, FormularioCorporalModule, ProcedimentoModule, ClienteModule, ConsultaModule, FormularioFacialModule, TecnicosModule, EspecialidadeModule, TurmaModule, SolicitacaoModule, PreformularioModule, CadastroModule, AuthModule],
   controllers: [AppController],
   providers: [AppService, PrismaService],
 })
