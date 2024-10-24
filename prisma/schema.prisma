@@ -38,7 +38,7 @@ model Tecnicos {
 }
 model Consulta {
   con_id    Int     @default(autoincrement()) @id
-  con_data DateTime
+  con_data DateTime @db.Date
   con_descricao String
   hora_inicio String
   hora_termino String
@@ -52,7 +52,13 @@ model Cliente {
   cli_email String @unique
   cli_senha String
   cadCli Cadastro[]
+  userType  UserType @default(Cliente)
 }
+enum UserType {
+  Cliente
+  Tecnico
+  Admin
+} 
 
 model Cadastro {
   cad_id Int @id @default(autoincrement())
@@ -71,7 +77,7 @@ model Cadastro {
   cad_telefone String
   cad_emergencia String?
   cad_contato String?
-  cad_dataNascimento DateTime
+  cad_dataNascimento DateTime @db.Date
   cad_idade String
   cad_sexo String
   cad_escolaridade String
@@ -118,7 +124,7 @@ model PreFormulario {
   // Pergunta: Especialidade:
   pre_p4 String?
   // Pergunta: Data:
-  pre_p5 DateTime?
+  pre_p5 DateTime? @db.Date
   // Pergunta: Antecedentes Alérgicos?
   pre_p6 String
   // Pergunta: Caso sim, quais?
@@ -154,7 +160,7 @@ model PreFormulario {
   // Pergunta: Ciclo Menstrual Regular?
   pre_p23 String?
   // Pergunta: DUM:
-  pre_p24 DateTime?
+  pre_p24 DateTime? @db.Date
   // Pergunta: Faz Uso de Métodos Anticoncepcionais?
   pre_p25 String
   // Pergunta: Caso sim, quais?
@@ -328,7 +334,7 @@ model FormularioCorporal {
 
 model Biometria {
   bio_id Int @id @default(autoincrement())
-  bio_data DateTime
+  bio_data DateTime @db.Date
   bio_bracoD Decimal?
   bio_bracoE Decimal?
   bio_busto Decimal?
