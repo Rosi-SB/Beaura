@@ -13,15 +13,15 @@ export class ClienteController {
     return this.clienteService.create(createClienteDto);
   }
 
-  // @Get()
-  // findAll() {
-  //   return this.clienteService.findAll();
-  // }
-  @UseGuards(AuthGuard)//protegido
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.clienteService.findOne(+id);
+  @Get()
+  findAll() {
+    return this.clienteService.findAll();
   }
+  // @UseGuards(AuthGuard)//protegido
+  // @Get(':id')
+  // findOne(@Param('id') id: string) {
+  //   return this.clienteService.findOne(+id);
+  // }
   
   @UseGuards(AuthGuard)
   @Patch(':id')
@@ -29,7 +29,7 @@ export class ClienteController {
     return this.clienteService.update(+id, updateClienteDto);
   }
   
-  @UseGuards(AuthGuard)
+
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.clienteService.remove(+id);
