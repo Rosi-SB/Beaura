@@ -14,7 +14,7 @@ export class CadastroController {
     return this.cadastroService.create(createCadastroDto);
   }
 
-  @UseGuards(AuthGuard)
+  //@UseGuards(AuthGuard)
   @Get()
   findAll() {
     return this.cadastroService.findAll();
